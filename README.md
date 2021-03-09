@@ -10,7 +10,3 @@ Project is created with:
 * Opencv
 * Pyautogui
 * Numpy
-
-## Sources
-* https://pyautogui.readthedocs.io/en/latest/
-* "Practical Python and OpenCV" Adrian Rosebrock
