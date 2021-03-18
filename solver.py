@@ -49,6 +49,14 @@ def check_win(table):
     return True
 
 
+def game_loop(agent, picture):
+
+    table, boxes_position, boxes = loading_pc.load_transform_img(picture)
+    print(len(boxes_position))
+
+    answer = agent(table, boxes)
+    return answer, boxes_position
+
 def random_agent(table, boxes):
 
     k=5
@@ -71,18 +79,10 @@ def random_agent(table, boxes):
             x, y = random.choice(pmove)
             table_copy = move(table_copy, x, y)
             correct_moves.append((x,y))
+
         l+=1
         
 
-def game_loop(picture):
-
-    table, boxes_position, boxes = loading_pc.load_transform_img(picture)
-    print(len(boxes_position))
-
-    answer = random_agent(table, boxes)
-    return answer, boxes_position
-    
-
 if __name__ == '__main__':
-    answer, boxes_position = game_loop('level/screen.jpg')
+    answer, boxes_position = game_loop(random_agent, 'level/screen.jpg')
     print('answer', answer)
